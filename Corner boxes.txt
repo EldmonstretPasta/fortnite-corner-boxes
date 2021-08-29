@@ -1,0 +1,60 @@
+if (settings.corner && SDK::Classes::Utils::CheckInScreen(CurrentActor, X, Y))
+			{
+				SDK::Classes::USkeletalMeshComponent::GetBoneLocation(CurrentActor, 66, &head2);
+				SDK::Classes::USkeletalMeshComponent::GetBoneLocation(CurrentActor, 65, &neck);
+				SDK::Classes::USkeletalMeshComponent::GetBoneLocation(CurrentActor, 2, &pelvis);
+				SDK::Classes::USkeletalMeshComponent::GetBoneLocation(CurrentActor, 36, &chest);
+				SDK::Classes::USkeletalMeshComponent::GetBoneLocation(CurrentActor, 9, &leftShoulder);
+				SDK::Classes::USkeletalMeshComponent::GetBoneLocation(CurrentActor, 37, &rightShoulder);
+				SDK::Classes::USkeletalMeshComponent::GetBoneLocation(CurrentActor, 10, &leftElbow);
+				SDK::Classes::USkeletalMeshComponent::GetBoneLocation(CurrentActor, 38, &rightElbow);
+				SDK::Classes::USkeletalMeshComponent::GetBoneLocation(CurrentActor, 11, &leftHand);
+				SDK::Classes::USkeletalMeshComponent::GetBoneLocation(CurrentActor, 39, &rightHand);
+				SDK::Classes::USkeletalMeshComponent::GetBoneLocation(CurrentActor, 67, &leftLeg);
+				SDK::Classes::USkeletalMeshComponent::GetBoneLocation(CurrentActor, 74, &rightLeg);
+				SDK::Classes::USkeletalMeshComponent::GetBoneLocation(CurrentActor, 73, &leftThigh);
+				SDK::Classes::USkeletalMeshComponent::GetBoneLocation(CurrentActor, 80, &rightThigh);
+				SDK::Classes::USkeletalMeshComponent::GetBoneLocation(CurrentActor, 68, &leftFoot);
+				SDK::Classes::USkeletalMeshComponent::GetBoneLocation(CurrentActor, 75, &rightFoot);
+				SDK::Classes::USkeletalMeshComponent::GetBoneLocation(CurrentActor, 71, &leftFeet);
+				SDK::Classes::USkeletalMeshComponent::GetBoneLocation(CurrentActor, 78, &rightFeet);
+				SDK::Classes::USkeletalMeshComponent::GetBoneLocation(CurrentActor, 72, &leftFeetFinger);
+				SDK::Classes::USkeletalMeshComponent::GetBoneLocation(CurrentActor, 79, &rightFeetFinger);
+				SDK::Classes::AController::WorldToScreen(head2, &head2);
+				SDK::Classes::AController::WorldToScreen(neck, &neck);
+				SDK::Classes::AController::WorldToScreen(pelvis, &pelvis);
+				SDK::Classes::AController::WorldToScreen(chest, &chest);
+				SDK::Classes::AController::WorldToScreen(leftShoulder, &leftShoulder);
+				SDK::Classes::AController::WorldToScreen(rightShoulder, &rightShoulder);
+				SDK::Classes::AController::WorldToScreen(leftElbow, &leftElbow);
+				SDK::Classes::AController::WorldToScreen(rightElbow, &rightElbow);
+				SDK::Classes::AController::WorldToScreen(leftHand, &leftHand);
+				SDK::Classes::AController::WorldToScreen(rightHand, &rightHand);
+				SDK::Classes::AController::WorldToScreen(leftLeg, &leftLeg);
+				SDK::Classes::AController::WorldToScreen(rightLeg, &rightLeg);
+				SDK::Classes::AController::WorldToScreen(leftThigh, &leftThigh);
+				SDK::Classes::AController::WorldToScreen(rightThigh, &rightThigh);
+				SDK::Classes::AController::WorldToScreen(leftFoot, &leftFoot);
+				SDK::Classes::AController::WorldToScreen(rightFoot, &rightFoot);
+				SDK::Classes::AController::WorldToScreen(leftFeet, &leftFeet);
+				SDK::Classes::AController::WorldToScreen(rightFeet, &rightFeet);
+				SDK::Classes::AController::WorldToScreen(leftFeetFinger, &leftFeetFinger);
+				SDK::Classes::AController::WorldToScreen(rightFeetFinger, &rightFeetFinger);
+				bool IsVisible;
+				
+				int array[20] = { head2.x, neck.x, pelvis.x, chest.x, leftShoulder.x, rightShoulder.x, leftElbow.x, rightElbow.x, leftHand.x, rightHand.x, leftLeg.x, rightLeg.x, leftThigh.x, rightThigh.x, leftFoot.x, rightFoot.x, leftFeet.x, rightFeet.x, leftFeetFinger.x, rightFeetFinger.x };
+				int mostright = array[0];
+				int mostleft = array[0];
+
+				for (int mostrighti = 0; mostrighti < 20; mostrighti++)
+				{
+					if (array[mostrighti] > mostright)
+						mostright = array[mostrighti];
+				}
+
+				for (int mostlefti = 0; mostlefti < 20; mostlefti++)
+				{
+					if (array[mostlefti] < mostleft)
+						mostleft = array[mostlefti];
+				}
+				ImColor col = { 255, 255, 255, 220 };
